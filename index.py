@@ -67,7 +67,7 @@ def entry():
       stations[station]["links"] = StationParser.generate_links_from_tables(table_rows, ["underground", "dlr"])
       stations[station]["lines"] = StationParser.extract_lines_from_links(stations[station]["links"])
 
-  with open('data.json', 'w') as fp:
+  with open('./output/data.json', 'w') as fp:
     json.dump(stations, fp, sort_keys=True, indent=4)
   return
 

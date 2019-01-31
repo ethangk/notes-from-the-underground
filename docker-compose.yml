@@ -1,0 +1,10 @@
+# Version of docker-compose
+version: '3'
+
+# Containers we are going to run
+services:
+  python:
+    build:
+      context: .
+    volumes:
+      - ./output:/usr/src/app/output
