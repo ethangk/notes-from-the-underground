@@ -1,4 +1,5 @@
 import unicodedata
+import Common
 
 # Take every table row from a page, and extract the indicies of the start and end of the transport links for a given system
 def parse_easy_table_rows(rows, system):
@@ -56,7 +57,7 @@ def parse_easy_table(rows, start_index, end_index):
       # could also do ' or "Terminus"' in td_text, but it's not neccessary at the moment, that can be inferred from the graph
       # If there's only one link for a given line, it's the end of the line
       if "towards" in td_text:
-        station = td.find("div").text
+        station = Common.clean_name(td.find("div").text)
         partial_links.append({"station": station})
     for i in range(len(partial_links)):
       partial_links[i]["line"] = line

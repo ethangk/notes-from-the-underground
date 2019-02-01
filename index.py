@@ -71,15 +71,13 @@ def entry():
     json.dump(stations, fp, sort_keys=True, indent=4)
   return
 
-
 def load_dict_from_cache():
   with open('data.json', 'r') as fp:
     stations = json.load(fp)
   draw_graph(stations)
 
-def extract_lines(node):
-  return len(node[1]["lines"])
-
+# This is a method I was using to visualise the graph that I was buildling
+# It serves as an example of what can be done with the generated data structure
 def draw_graph(stations):
   G = nx.Graph()
   nodes = []
@@ -108,5 +106,4 @@ def draw_graph(stations):
   plt.show()
 
 
-# load_dict_from_cache()
 entry()

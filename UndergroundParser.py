@@ -1,7 +1,9 @@
+import Common
+
 # Parse a row from the underground stations index, return a tuple
 # with the station name and station data in
 def parse_index_table_row(row):
-  station_name = row.select("th")[0].text.replace("\\n", "")
+  station_name = Common.clean_name(row.select("th")[0].text)
   station_link = row.select("th a")[0]['href'].split("#")[0]
   if (len(station_link) == 0):
     # skip it

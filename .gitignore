@@ -1,6 +1,6 @@
 __pycache__
 .vscode
-cache
+cache/*.html
 venv
 *.json
 *.pickle

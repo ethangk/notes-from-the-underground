@@ -1,3 +1,5 @@
+import Common
+
 # Parse a row from the DLR index page
 def parse_index_table_row(row):
   tds = row.find_all('td')
@@ -5,7 +7,7 @@ def parse_index_table_row(row):
     return (None, None)
 
   # Get the station name and href, clean them up a little
-  station_name = row.select("td")[0].text.replace("\\n", "")
+  station_name = Common.clean_name(row.select("td")[0].text)
   station_link = row.select("td a")[0]['href'].split("#")[0]
 
   # Looks like we didn't get a station
@@ -20,7 +22,7 @@ def parse_index_table_row(row):
   # I haven't mapped the column names to something that I can reference easy
   for i, td in enumerate(tds):
     if (i == 3):
-      station_data['zones'] = td.text.replace("\\n", "").split(" & ")
+      station_data['zones'] = Common.clean_name(td.text).split(" & ")
 
   return (station_name, station_data)
 

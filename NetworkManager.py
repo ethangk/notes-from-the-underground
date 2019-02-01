@@ -6,6 +6,7 @@ from contextlib import closing
 
 CACHE_DIR = "./cache"
 
+# I've pulled the first few functions in this file from a tutorial on web scraping in Python
 def simple_get(url):
     """
     Attempts to get the content at `url` by making an HTTP GET request.
@@ -59,6 +60,8 @@ def fetch_and_cache(host, path):
   open(generate_file_path(path), "w").write(str(content))
   return content
 
+# Running this over and over again without caching became a bottleneck very quickly
+# This attempts to read from the cached version, and fetches+caches the page if not
 def fetch(host, path):
   (file_exists, file_path) = cached_file_exists(path)
   if (file_exists):
