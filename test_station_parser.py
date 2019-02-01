@@ -2,11 +2,11 @@ import unittest
 
 import StationParser
 
-def test_is_easy_table_line():
-    assert StationParser.is_easy_table_line("Bakerloo line") == True
-    assert StationParser.is_easy_table_line("Northern line") == True
-    assert StationParser.is_easy_table_line("Docklands Light Railway") == True
-    assert StationParser.is_easy_table_line("Something that doesn't look good") == False
+def test_is_transit_table_line():
+    assert StationParser.is_transit_table_line("Bakerloo line") == True
+    assert StationParser.is_transit_table_line("Northern line") == True
+    assert StationParser.is_transit_table_line("Docklands Light Railway") == True
+    assert StationParser.is_transit_table_line("Something that doesn't look good") == False
 
 def list_diff(li1, li2):
     li_dif = [i for i in li1 + li2 if i not in li1 or i not in li2]
