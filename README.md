@@ -29,7 +29,7 @@ https://en.wikipedia.org/wiki/List_of_Docklands_Light_Railway_stations
 ## Implementation
 I've completed steps 1-3. I've given some examples of what's possible with the generated graph structure in `index.py > show_graph_ops/1`
 
-When deciding the best route, the graph traversal algorithms just have least number of edges to go by. There's no information about the length of each edge.
+When deciding the best route, the graph traversal algorithms just have number of edges to use, so it'll find the route with the least number of edges. There's no information about the length of each edge.
 
 I was unfamiliar with data scraping in Python, as a lot of my recent experience of scraping and parsing has been with Elixir. I've tried to make the functions not rely on external state, as I'd do in Elixir. I've written some very basic tests, but didn't have time to write more.
 
