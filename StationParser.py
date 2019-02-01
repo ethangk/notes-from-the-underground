@@ -32,6 +32,17 @@ def parse_transit_table_rows(rows, system):
 def is_transit_table_line(content):
   return " line" in content or "Docklands Light Railway" in content
 
+def remove_duplicate_links(links):
+  seen = set()
+  links_to_keep = []
+  for link in links:
+      t = tuple(link.items())
+      if t not in seen:
+          seen.add(t)
+          links_to_keep.append(link)
+
+  return links_to_keep
+
 # Take a list of table rows from the station page, grab the relevant rows and extract the preceding and following stations
 # each relevant line
 def parse_transit_table(rows, start_index, end_index):
@@ -65,7 +76,7 @@ def parse_transit_table(rows, start_index, end_index):
 
     links += partial_links
 
-  return links
+  return remove_duplicate_links(links)
 
 # Take every table row and extract the transport links for both the underground and DLR
 def generate_links_from_tables(table_rows, sources):
