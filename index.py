@@ -105,5 +105,5 @@ def draw_graph(stations):
   nx.draw(G, pos, edges=edges, edge_color=colors, with_labels=True)
   plt.show()
 
-
-entry()
+if __name__ == "__main__":
+  entry()
